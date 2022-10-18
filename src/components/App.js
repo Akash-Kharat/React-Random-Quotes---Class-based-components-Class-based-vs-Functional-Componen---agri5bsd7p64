@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/App.css";
 
 var colors = [
@@ -19,7 +19,7 @@ var colors = [
 const App = () => {
     const [text,setText]=useState('');
     const [auther,setAuther]=useState('');
-    const [colr,setColor] = useState('white');
+    const [colr,setColor] = useState(colors[0]);
     
     function clickHandler(){
       fetch("https://api.quotable.io/random").then(
@@ -33,6 +33,15 @@ const App = () => {
       setColor(colors[random]);  
     }
 
+    useEffect(()=>{
+      fetch("https://api.quotable.io/random").then(
+        (res)=> res.json()).then(
+          (quote)=>{
+            setText(quote.content);
+            setAuther(quote.author);
+          }
+        )
+    },[])
 
     
     return (
