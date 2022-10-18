@@ -19,6 +19,7 @@ var colors = [
 const App = () => {
     const [text,setText]=useState('');
     const [auther,setAuther]=useState('');
+    const [colr,setColor] = useState('white');
     
     function clickHandler(){
       fetch("https://api.quotable.io/random").then(
@@ -28,21 +29,28 @@ const App = () => {
             setAuther(quote.author);
           }
         )
+      let random =Math.round(Math.random()*11);
+      setColor(colors[random]);  
     }
+
+
     
     return (
       <div id="main">
-        <div id="wrapper">
-          <div className="quote-text">
+        <div id="wrapper" >
+          <div id="quote-box">
+          <div className="quote-text" style={{color:`${colr}`}}>
             {text}
           </div>
-          <div className="quote-auther">
+
+          <div className="quote-author" style={{color:`${colr}`}}>
             {auther}
           </div>
+
           <button id="new-quote" onClick={clickHandler}>
               New Quote
           </button>
-          
+          </div>
         </div>
       </div>
     );
