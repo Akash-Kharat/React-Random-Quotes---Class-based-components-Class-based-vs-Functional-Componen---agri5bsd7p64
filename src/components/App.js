@@ -45,8 +45,6 @@ const App = () => {
 
     
     return (
-      <div id="main">
-        <div id="wrapper" >
           <div id="quote-box">
           <div className="quote-text" style={{color:`${colr}`}}>
             {text}
@@ -60,8 +58,6 @@ const App = () => {
               New Quote
           </button>
           </div>
-        </div>
-      </div>
     );
 };
 
