@@ -47,18 +47,20 @@ const App = () => {
     return (
           <div id="quote-box">
           <div className="quote-text" style={{color:`${colr}`}}>
-            {text}
+           <span id="text">{text}</span> 
           </div>
 
           <div className="quote-author" style={{color:`${colr}`}}>
-            {auther}
+            -<span id="author">{auther}</span>
           </div>
 
-          <button id="new-quote" onClick={clickHandler}>
+          <button className="button" id="new-quote" onClick={clickHandler}>
               New Quote
           </button>
           </div>
     );
+
+    return <div>Loading...</div>
 };
 
 export default App;
